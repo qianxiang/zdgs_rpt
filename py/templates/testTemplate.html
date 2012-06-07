@@ -1,0 +1,20 @@
+$def with ( data)       
+$#上一行一定要写在第一行。
+
+
+
+
+$ tables = data['tables']
+
+$len(tables)
+
+$for table in tables :
+    <br/>Table Name : $table['name']
+    <table border='1'>
+    $ t_data = table['t_data']
+    $for row in t_data:
+        <tr>
+        $for cell in row :
+            <td> $cell </td>
+        </tr>
+    </table>

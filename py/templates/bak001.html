@@ -1,0 +1,146 @@
+$def with ( data)       
+$#上一行一定要写在第一行。
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <link href="static/css/style.css" rel="stylesheet" type="text/css" />
+    <script src="static/js/jquery-1.7.1.min.js"></script> 
+    <script language="javascript">
+        $(document).ready(function(){
+            // 文档就绪
+            // fun_name = window.setInterval(chagePic,delay_time);
+            hide_All_col_name();
+            $("#fld_col_name").slideDown("slow");
+
+            $(".radio_report_type).bind("click",function() {
+                alert();
+            });
+
+
+            $('input[name="report_type"]').bind('click', function() {
+                //alert(this.value);
+                hide_All_col_name();
+                varSelecter = "#" + this.value + "_col_name";
+                $(varSelecter).slideDown("slow");
+            });
+        });
+
+        hide_All_col_name = function(){
+            $("#fld_col_name").slideUp("slow");
+            $("#sld_col_name").slideUp("slow");
+            $("#jld_col_name").slideUp("slow");
+            $("#lyd_col_name").slideUp("slow");
+            $("#nbdbd_col_name").slideUp("slow");
+            $("#rkd_col_name").slideUp("slow");
+        }
+
+    </script> 
+
+
+</head>
+<body>
+    <form method="post" action="previewReport">
+        报表种类：
+        <span class="radio_report_type">
+            <input type="radio" name="report_type" value="fld" checked >发料单 &nbsp;</span>
+        <span class="radio_report_type">
+            <input type="radio" name="report_type" value="sld">收料单 &nbsp;</span>
+        <span class="radio_report_type">
+            <input type="radio" name="report_type" value="jld">缴料单 &nbsp;</span>
+        <span class="radio_report_type">
+            <input type="radio" name="report_type" value="lyd">领用单 &nbsp;</span>
+        <span class="radio_report_type">
+            <input type="radio" name="report_type" value="nbdbd">内部调拨单 &nbsp;</span>
+        <span class="radio_report_type">
+            <input type="radio" name="report_type" value="rkd">入库单 &nbsp;</span>
+    <br/><br/>
+    数据列对应关系：<br/>
+    <span id="fld_col_name">
+        <br/>
+        名称及规格<input type="text" name="fld_data_col_1" value="" size="2"> &nbsp;
+        计量单位  <input type="text" name="fld_data_col_2" value="" size="2"> &nbsp;
+        发出数量  <input type="text" name="fld_data_col_3" value="" size="2"> &nbsp;
+        机型编码  <input type="text" name="fld_data_col_4" value="" size="2"> &nbsp;
+        单价      <input type="text" name="fld_data_col_5" value="" size="2"> &nbsp;
+        客户      <input type="text" name="fld_data_col_6" value="" size="2"> &nbsp;
+        电话      <input type="text" name="fld_data_col_7" value="" size="2"> &nbsp;
+    </span>
+    <span id="sld_col_name">
+        <br/>
+        名称及规格<input type="text" name="sld_data_col_1" value="" size="2"> &nbsp;
+        计量单位  <input type="text" name="sld_data_col_2" value="" size="2"> &nbsp;
+        交货数量  <input type="text" name="sld_data_col_3" value="" size="2"> &nbsp;
+        实收数量  <input type="text" name="sld_data_col_4" value="" size="2"> &nbsp;
+        赢        <input type="text" name="sld_data_col_5" value="" size="2"> &nbsp;
+        亏        <input type="text" name="sld_data_col_6" value="" size="2"> &nbsp;
+        新旧程度  <input type="text" name="sld_data_col_7" value="" size="2"> &nbsp;
+        单价      <input type="text" name="sld_data_col_8" value="" size="2"> &nbsp;
+        金额      <input type="text" name="sld_data_col_9" value="" size="2"> &nbsp;
+        备注      <input type="text" name="sld_data_col_10" value="" size="2"> &nbsp;
+    </span>
+    <span id="jld_col_name">
+        <br/>
+        名称及规格<input type="text" name="jld_data_col_1" value="" size="2"> &nbsp;
+        计量单位  <input type="text" name="jld_data_col_2" value="" size="2"> &nbsp;
+        缴料      <input type="text" name="jld_data_col_3" value="" size="2"> &nbsp;
+        实收      <input type="text" name="jld_data_col_4" value="" size="2"> &nbsp;
+        新旧程度  <input type="text" name="jld_data_col_5" value="" size="2"> &nbsp;
+        件数      <input type="text" name="jld_data_col_6" value="" size="2"> &nbsp;
+    </span>
+    <span id="lyd_col_name">
+        <br/>
+        名称及规格<input type="text" name="lyd_data_col_1" value="" size="2"> &nbsp;
+        计量单位  <input type="text" name="lyd_data_col_2" value="" size="2"> &nbsp;
+        应发数量  <input type="text" name="lyd_data_col_3" value="" size="2"> &nbsp;
+        实发数量  <input type="text" name="lyd_data_col_4" value="" size="2"> &nbsp;
+        新旧程度  <input type="text" name="lyd_data_col_5" value="" size="2"> &nbsp;
+        用途      <input type="text" name="lyd_data_col_6" value="" size="2"> &nbsp;
+    </span>
+    <span id="nbdbd_col_name">
+        <br/>
+        名称及规格<input type="text" name="nbdbd_data_col_1" value="" size="2"> &nbsp;
+        颜色      <input type="text" name="nbdbd_data_col_2" value="" size="2"> &nbsp;
+        拨出数量  <input type="text" name="nbdbd_data_col_3" value="" size="2"> &nbsp;
+        拨入数量  <input type="text" name="nbdbd_data_col_4" value="" size="2"> &nbsp;
+        调拨依据  <input type="text" name="nbdbd_data_col_5" value="" size="2"> &nbsp;
+        备注      <input type="text" name="nbdbd_data_col_6" value="" size="2"> &nbsp;
+    </span>
+    <span id="rkd_col_name">
+        <br/>
+        名称及规格<input type="text" name="rkd_data_col_1" value="" size="2"> &nbsp;
+        计量单位  <input type="text" name="rkd_data_col_2" value="" size="2"> &nbsp;
+        应收数量  <input type="text" name="rkd_data_col_3" value="" size="2"> &nbsp;
+        实收数量  <input type="text" name="rkd_data_col_4" value="" size="2"> &nbsp;
+        新旧程度  <input type="text" name="rkd_data_col_5" value="" size="2"> &nbsp;
+        件数      <input type="text" name="rkd_data_col_6" value="" size="2"> &nbsp;
+        备注      <input type="text" name="rkd_data_col_7" value="" size="2"> &nbsp;
+    </span><br/>
+
+$ tables = data['tables']
+
+$for table in tables :
+    <br/>表格名称: $table['name']
+    
+    <table border="1" cellpadding="0" cellspacing="0" bgcolor="1D96C1" width="100%" >
+    $ t_data = table['t_data']
+    
+    $ count = 0
+    $if len(t_data) > 0 :
+        $ count = len(t_data[0])
+    <tr>
+    $for i in range(count):
+        <td> $(i+1) 
+        </td>
+    </tr> 
+
+    $for row in t_data:
+        <tr>
+            $for cell in row :
+                $# showValue = cell if cell else "&nbsp;"
+                <td> $cell &nbsp; </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

@@ -1,0 +1,111 @@
+A:link {
+	color:#2B2BD5; 
+	text-decoration:none
+}
+
+A:visited	{
+	color:#537A9B;
+	text-decoration:none
+}
+
+A:hover {
+	color:#FF6600;
+	text-decoration:underline overline
+}
+
+A:active {
+	color:#333333;
+	text-decoration:none
+}
+
+TABLE {
+	text-align:left;
+	BORDER-BOTTOM: #A6D2FF 2px solid;
+	BORDER-LEFT: #A6D2FF 2px solid;
+	BORDER-RIGHT: #A6D2FF 2px solid;
+	BORDER-TOP: #A6D2FF 2px solid;
+	BORDER-COLOR: #A6D2FF;
+	line-height: 13pt;
+	background-color: #FFFFFF;
+	FONT-size: 9pt;
+	FONT-FAMILY:宋体, Arial, Helvetica
+}
+
+TD {
+	FONT-size: 9pt;
+	line-height: 13pt;
+	WORD-WRAP: break-word;
+	FONT-FAMILY:宋体, Arial, Helvetica
+}
+
+TEXTAREA {
+	color:#333333;
+	BACKGROUND-COLOR: #DFEFFF;
+	BORDER-BOTTOM: 1px solid;
+	BORDER-LEFT: 1px solid;
+
+	BORDER-TOP: 1px solid
+	BORDER-RIGHT: 1px #A6D2FF;
+
+	font-size: 9pt;
+	FONT-FAMILY:宋体, Arial, Helvetica
+}
+
+SELECT {
+	FONT-size: 9pt;
+	line-height: 13pt;
+	FONT-FAMILY:宋体, Arial, Helvetica;
+	BORDER-BOTTOM: 1px #A6D2FF;
+	BORDER-LEFT: 1px #A6D2FF;
+	BORDER-RIGHT: 1px #A6D2FF;
+	BORDER-TOP: 1px #A6D2FF;
+	BORDER-COLOR: #A6D2FF;
+	BACKGROUND-COLOR: #DFEFFF
+}
+
+INPUT {
+
+	BACKGROUND-COLOR: #DFEFFF;
+	CURSOR: HAND;
+	BORDER-TOP-WIDTH: 1px;
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	BORDER-LEFT-WIDTH: 1px;
+	FONT-SIZE: 9pt;
+	BORDER-LEFT-COLOR: #cccccc;
+	BORDER-BOTTOM-WIDTH: 1px;
+	BORDER-BOTTOM-COLOR: #cccccc;
+	PADDING-BOTTOM: 1px;
+	BORDER-TOP-COLOR: #cccccc;
+	PADDING-TOP: 1px;
+	BORDER-RIGHT-WIDTH: 1px;
+	BORDER-RIGHT-COLOR: #cccccc;	
+	color:#222288;	
+	BORDER-BOTTOM: 1px solid;
+	BORDER-LEFT: 1px solid;
+	BORDER-RIGHT: 1px solid;
+	BORDER-TOP: 1px solid
+}
+
+BODY 
+{
+    SCROLLBAR-FACE-COLOR: rgb(218,234,247); 
+    SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; 
+    SCROLLBAR-SHADOW-COLOR: #ffffff; 
+    SCROLLBAR-3DLIGHT-COLOR: #abd4f8; 
+    SCROLLBAR-ARROW-COLOR: #336699; 
+    SCROLLBAR-TRACK-COLOR: rgb(218,234,247); 
+    SCROLLBAR-DARKSHADOW-COLOR: #006699; 
+    BACKGROUND-COLOR: #deebf7;
+}
+
+P.title {
+	FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif,宋体;
+	font-weight: bold;
+	FONT-SIZE: 16pt
+}
+
+P.comment {
+	FONT-FAMILY: Verdana,Arial,Helvetica,sans-serif,宋体;
+	FONT-SIZE: 12pt
+}
