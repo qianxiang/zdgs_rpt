@@ -10,7 +10,7 @@ $#上一行一定要写在第一行。
 </head>
 <body>
     <form method="post" action="saveToTemp">
-        <input type="hidden" name="filename" value="$data['filename']" checked >
+        <input type="hidden" name="filename" value="$data['filename']" >
 
         报表种类：
         <span class="radio_report_type" >
@@ -93,7 +93,7 @@ $#上一行一定要写在第一行。
         备注      <input type="text" name="data_col_7" value="" size="2"> &nbsp;
     </span><br/>
         <span >
-            <input type="submit" name="s_1" value="Save"></span>
+            <input type="submit" name="s_1" value="导入数据"></span>
 
 $ tables = data['tables']
 

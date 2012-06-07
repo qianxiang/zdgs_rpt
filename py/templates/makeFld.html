@@ -1,0 +1,56 @@
+$def with ( data)       
+$#上一行一定要写在第一行。
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <style  href="static/css/style.css" rel="stylesheet" type="text/css" ></style>
+    <script src="static/js/jquery-1.7.1.min.js"></script> 
+    <script src="static/js/makeFld.js"></script> 
+</head>
+<body>
+    <form method="post" action="saveFld">
+        <input type="hidden" name="data_no" value="$data['data_no']">
+        <table border='1' width="80%">
+            <tr>
+                <td>
+        客户名称：    <input type="text" name="c1" value="$data['c1']" size="20"> &nbsp; <br/>
+        客户地址：    <input type="text" name="c2" value="$data['c2']" size="20"> &nbsp; <br/>
+        联系电话：    <input type="text" name="c3" value="$data['c3']" size="20"> &nbsp; <br/>
+               </td>
+        <td>中国移动通信集团终端有限公司陕西分公司
+            <br/>发 料 单
+        </td>
+        <td>
+        所属地市：    <input type="text" name="c4" value="$data['c4']" size="20"> &nbsp; <br/>
+        需求单号：    <input type="text" name="c5" value="$data['c5']" size="20"> &nbsp; <br/>
+        流水号：      <input type="text" name="fld_no" value="$data['fld_no']" size="20"> &nbsp;
+
+        </td>
+    </tr>
+</table>
+<table border='1' width="80%"><tr>
+        <td> 物资<br/>编号：  </td>
+        <td> 名称及规格：  </td>
+        <td> 机型代码：  </td>
+        <td> 计量单位：  </td>
+        <td> 应发数量：  </td>
+        <td> 实发数量：  </td>
+        <td> 备注：  </td>
+</tr>
+<tr>
+    <td>1</td>
+          <td>  <input type="text" name="c6" value="$data['c6']" size="25"> &nbsp;  </td>
+          <td>  <input type="text" name="c7" value="$data['c7']" size="15"> &nbsp;  </td>
+         <td>   <input type="text" name="c8" value="$data['c8']" size="8"> &nbsp;  </td>
+         <td>   <input type="text" name="c9" value="$data['c9']" size="8"> &nbsp;  </td>
+        <td>    <input type="text" name="c10" value="$data['c10']" size="8"> &nbsp;  </td>
+        <td>    <input type="text" name="c11" value="$data['c11']" size="20"> &nbsp;  </td>
+</tr>
+
+</table>
+            <input type="submit" name="s_1" value="生成报表"></span>
+
+</form>
+</body>
+</html>

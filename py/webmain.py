@@ -4,12 +4,16 @@ import web
 import xlsUtil
 
 from saveToTemp import saveToTemp 
+from makeFld import makeFld 
+from saveFld import saveFld 
 import up
 
 urls = (
     '/uploadPage', 'uploadPage' ,
     '/upload', 'upload' ,
     '/previewPage', 'previewPage' ,
+    '/makeFld', 'makeFld' ,
+    '/saveFld', 'saveFld' ,
     '/app_up', up.app_up ,
     '/saveToTemp', "saveToTemp",
     '/rep', 'report',

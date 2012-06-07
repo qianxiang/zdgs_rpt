@@ -10,6 +10,9 @@
 /* 数据导入临时表
 */
 CREATE TABLE  temp_data (
+  data_no char(32) not null,
+  data_type char(32) not null,
+  use_flag char(32 not null,
   c1 CHAR(128), 
   c2 CHAR(128), 
   c3 CHAR(128), 
