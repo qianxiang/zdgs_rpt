@@ -9,6 +9,7 @@ from saveFld import saveFld
 import up
 
 urls = (
+    '/working', 'working' ,
     '/uploadPage', 'uploadPage' ,
     '/upload', 'upload' ,
     '/previewPage', 'previewPage' ,
@@ -16,7 +17,6 @@ urls = (
     '/saveFld', 'saveFld' ,
     '/app_up', up.app_up ,
     '/saveToTemp', "saveToTemp",
-    '/rep', 'report',
     '/favicon.ico', 'favicon',
     '/(.*)', 'defaultPage',
     '/(.*)/', 'defaultPage'
@@ -25,9 +25,6 @@ app = web.application(urls, globals())
 
 render = web.template.render('templates')
 
-class report:        
-    def GET(self):   
-        return 'Hello, World!'
 
 class uploadPage:
     def GET(self):
@@ -80,8 +77,12 @@ class previewPage:
 class defaultPage:
     def GET(self, name):
         # Do some application logic here, and then:
-        raise web.seeother('/rep')
+        raise web.seeother('/static/index.html')
 
+class working:
+    def GET(self):
+        # Do some application logic here, and then:
+        raise web.seeother('/static/working.html')
 
 
 class favicon:
