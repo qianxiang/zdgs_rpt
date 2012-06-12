@@ -112,13 +112,18 @@ $for table in tables :
         </td>
     </tr> 
 
+    $ rowCount = 1
     $for row in t_data:
         <tr>
             $for cell in row :
                 $# showValue = cell if cell else "&nbsp;"
                 <td> $cell &nbsp; </td>
         </tr>
+        $ rowCount = rowCount + 1
+        $if rowCount > 30 :
+            $break
     </table>
+    $break
 </form>
 </body>
 </html>
