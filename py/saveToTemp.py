@@ -97,8 +97,10 @@ class saveToTemp:
             renderData['showMsg'] = msg
             return render.err(renderData)
 
+        msg = "导入操作执行成功，共导入数据" + str(iCount) + "条。"
+        renderData['showMsg'] = msg
+        return render.msg(renderData)
 
-        return "data:" +  str(req.has_key("filename")) + req["filename"]
 
 def saveFld():
     return ""
