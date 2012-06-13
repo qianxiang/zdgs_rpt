@@ -55,7 +55,7 @@ class saveFld:
         cx.close()
 
         #return "success"
-        raise web.redirect('http://localhost:8000/zdgs/report?type=fld&id=' + req['fld_no'] )
+        raise web.redirect('http://192.168.1.16:8000/zdgs/report?type=fld&id=' + req['fld_no'] )
 
 
 def getConn():

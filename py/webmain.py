@@ -6,6 +6,7 @@ import xlsUtil
 from saveToTemp import saveToTemp 
 from makeFld import makeFld 
 from saveFld import saveFld 
+import lazy 
 import up
 
 urls = (
@@ -47,7 +48,8 @@ class upload:
             filename=filepath.split('/')[-1] 
             
             # creates the file where the uploaded file should be stored
-            fullpath = filedir +'/'+ filename
+
+            fullpath = filedir +'/'+ lazy.getYmdhms() + '.xls'
             fout = open( fullpath,'w') 
             
             # writes the uploaded file to the newly created file.
@@ -56,6 +58,9 @@ class upload:
             # closes the file, upload complete.
             fout.close()
         # 去预览数据，并进行挑选
+        print fullpath 
+        print unicode('/previewPage?filename=') 
+        print unicode(fullpath)
         raise web.seeother('/previewPage?filename=' + fullpath)
 
 
