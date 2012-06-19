@@ -37,55 +37,44 @@ CREATE TABLE  temp_data (
 
 
 /* 发料单
-fld_no, 项目号，项目，名称，所属地市，地址
-，发料编号，制单日期，出库日期，发料仓库
+fld_no, 客户名称，客户地址，联系电话，所属地市，需求单号，流水号
+，制单日期，出库日期，发料仓库，金额大写，金额合计
 */
 CREATE TABLE fld (
   fld_no CHAR(32) NOT NULL, 
-  xmh CHAR(64), 
-  xm CHAR(64), 
-  mc CHAR(64), 
+  khmc CHAR(64), 
+  khdz CHAR(128), 
+  lxdh CHAR(64), 
   ssds CHAR(64), 
-  dz CHAR(64), 
-  flbh CHAR(32), 
+  xqdh CHAR(64), 
+  lsh  CHAR(64),
   zdrq CHAR(16), 
   ckrq CHAR(16), 
   flck CHAR(64),
+  jedx CHAR(64),
+  jehj CHAR(64),
   PRIMARY KEY(fld_no ASC)
 );
 
-
 /*
-fld_no, 物资编号，名称及规格，计量单位，发出数量
-，机型编码，单价，客户，电话
+fld_no, 编号，名称及规格，计量单位，应发数量，实发数量，备注
 */
 CREATE TABLE fld_list (
   fld_no CHAR(32) NOT NULL, 
-  wzbh INT NOT NULL, 
+  bh INT NOT NULL, 
   mcjgg CHAR(64), 
+  jxdm CHAR(32), 
   jldw CHAR(16), 
-  fcsl CHAR(16), 
-  jxbm CHAR(32), 
-  dj CHAR(32), 
-  kh CHAR(32), 
-  dh CHAR(32)
+  yfsl CHAR(16), 
+  sfsl CHAR(16), 
+  bz CHAR(64)
 );
 
+/*
 insert into fld(fld_no, xmh, xm, mc, ssds, dz, flbh, zdrq, ckrq, flck ) 
        values ('1111','001','促销项目','华为','渭南','渭南东大街','陕006','2012-05-12','2012-05-12','东仓库');
 insert into fld_list(fld_no, wzbh, mcjgg, jldw, fcsl, jxbm, dj, kh, dh ) values ('1111','1','华为909','台','100','hw909','300','渭南分公司','13991300000');
-insert into fld_list(fld_no, wzbh, mcjgg, jldw, fcsl, jxbm, dj, kh, dh ) values ('1111','2','华为909','台','100','hw909','300','渭南分公司','13991300000');
-insert into fld_list(fld_no, wzbh, mcjgg, jldw, fcsl, jxbm, dj, kh, dh ) values ('1111','3','华为909','台','100','hw909','300','渭南分公司','13991300000');
-insert into fld_list(fld_no, wzbh, mcjgg, jldw, fcsl, jxbm, dj, kh, dh ) values ('1111','4','华为909','台','100','hw909','300','渭南分公司','13991300000');
-insert into fld_list(fld_no, wzbh, mcjgg, jldw, fcsl, jxbm, dj, kh, dh ) values ('1111','5','华为909','台','100','hw909','300','渭南分公司','13991300000');
-insert into fld_list(fld_no, wzbh, mcjgg, jldw, fcsl, jxbm, dj, kh, dh ) values ('1111','6','华为909','台','100','hw909','300','渭南分公司','13991300000');
-insert into fld_list(fld_no, wzbh, mcjgg, jldw, fcsl, jxbm, dj, kh, dh ) values ('1111','7','华为909','台','100','hw909','300','渭南分公司','13991300000');
-insert into fld_list(fld_no, wzbh, mcjgg, jldw, fcsl, jxbm, dj, kh, dh ) values ('1111','8','华为909','台','100','hw909','300','渭南分公司','13991300000');
-insert into fld_list(fld_no, wzbh, mcjgg, jldw, fcsl, jxbm, dj, kh, dh ) values ('1111','9','华为909','台','100','hw909','300','渭南分公司','13991300000');
-insert into fld_list(fld_no, wzbh, mcjgg, jldw, fcsl, jxbm, dj, kh, dh ) values ('1111','10','华为909','台','100','hw909','300','渭南分公司','13991300000');
-insert into fld_list(fld_no, wzbh, mcjgg, jldw, fcsl, jxbm, dj, kh, dh ) values ('1111','11','华为909','台','100','hw909','300','渭南分公司','13991300000');
-insert into fld_list(fld_no, wzbh, mcjgg, jldw, fcsl, jxbm, dj, kh, dh ) values ('1111','12','华为909','台','100','hw909','300','渭南分公司','13991300000');
-
+*/
 
 
 /*  收料单
