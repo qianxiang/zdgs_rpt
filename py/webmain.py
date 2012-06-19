@@ -22,7 +22,12 @@ urls = (
     '/(.*)', 'defaultPage',
     '/(.*)/', 'defaultPage'
 )
+web.config.debug = True #False
 app = web.application(urls, globals())
+
+if __name__ == "__main__":
+    app.run()
+
 
 render = web.template.render('templates')
 
@@ -97,5 +102,3 @@ class favicon:
 
 
 
-if __name__ == "__main__":
-    app.run()
