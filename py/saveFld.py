@@ -55,7 +55,15 @@ class saveFld:
         cx.close()
 
         #return "success"
-        raise web.redirect('http://192.168.1.16:8000/zdgs/report?type=fld&id=' + req['fld_no'] )
+        host = web.ctx.get('host', '192.168.1.101')
+        tempIndex = host.find(':')
+        if tempIndex < 1 :
+            renderData['runFlag'] = False
+
+        print host[:tempIndex]
+        ip = host[:tempIndex]
+
+        raise web.redirect('http://'+ ip +':8000/zdgs/report?type=fld&id=' + req['fld_no'] )
 
 
 def getConn():
