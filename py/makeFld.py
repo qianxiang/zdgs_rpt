@@ -21,6 +21,7 @@ class makeFld:
         print strSql
         cu.execute(strSql)
 
+        dataCount = 0
         for fld in cu:
             renderData['data_no'] = fld[0]
             renderData['c1'] = fld[1]
@@ -37,11 +38,16 @@ class makeFld:
             renderData['c12'] = fld[12]
             renderData['c13'] = fld[13]
             renderData['c14'] = fld[14]
+            dataCount = dataCount + 1
             break
 
         cu.close()
         cx.close()
 
+        if dataCount == 0 :
+            renderData['showMsg'] = "太好了，所有发料单都已经生成了。"
+            return render.msg(renderData)        
+            
         renderData['fld_no'] = getDataNo()
         print renderData
 

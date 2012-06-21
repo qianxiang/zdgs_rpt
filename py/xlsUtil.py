@@ -21,7 +21,14 @@ def getExcelData( filename ):
             #print row
             values = []
             for col in range(s.ncols):
-                values.append(s.cell(row,col).value)
+                tempValue = s.cell(row,col).value
+                if isinstance( tempValue, float ):
+                    tempInt = int(tempValue)
+                    if (tempValue-tempInt) < 0.00001 :
+                        tempValue = format(tempValue, '.0f')
+                        print tempValue
+                #print "Type: " + str(type(tempValue)) + "  " + unicode(tempValue)
+                values.append(tempValue)
             t_data.append(values)
         t1['t_data'] = t_data
         print retValue
