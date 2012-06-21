@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-  
 
 from xlrd import open_workbook
+import xlrd
 
 
 # 从Excel文件中读取数据，放入一个数组中。
@@ -22,11 +23,15 @@ def getExcelData( filename ):
             values = []
             for col in range(s.ncols):
                 tempValue = s.cell(row,col).value
-                if isinstance( tempValue, float ):
+                
+                if s.cell_type(row, col) == xlrd.XL_CELL_DATE :
+                    tempDate = xlrd.xldate_as_tuple(tempValue, 0)
+                    tempValue = getStrDate(tempDate)
+                elif isinstance( tempValue, float ):
                     tempInt = int(tempValue)
                     if (tempValue-tempInt) < 0.00001 :
                         tempValue = format(tempValue, '.0f')
-                        print tempValue
+                        #print tempValue
                 #print "Type: " + str(type(tempValue)) + "  " + unicode(tempValue)
                 values.append(tempValue)
             t_data.append(values)
@@ -35,3 +40,6 @@ def getExcelData( filename ):
         tables.append(t1)
     retValue['tables'] = tables
     return retValue 
+
+def getStrDate( tupleDate ):
+    return str(tupleDate[0]) + '/' + str(tupleDate[1]) + '/' + str(tupleDate[2])
