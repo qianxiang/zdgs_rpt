@@ -35,15 +35,15 @@ class saveFld:
         strInsert = "INSERT INTO fld (fld_no, khmc, khdz, lxdh, ssds, xqdh, lsh, " \
             + "zdrq, ckrq, flck, jedx, jehj ) VALUES ('" \
             + req['fld_no'] + "','" + req['c1'] + "','" + req['c2'] + "','" + req['c3'] \
-            + "','" + req['c4'] + "','" + req['c5']  + "','" + req['c6'] + "','" + req['c7'] \
-            + "','" + req['c8'] + "','" + req['c9']  + "','" + req['c10'] + "','" + req['c11'] + "')"
+            + "','" + req['c4'] + "','" + req['c5']  + "','" + req['fld_no'] + "','" + req['c6'] \
+            + "','" + req['c7'] + "','" + req['c8']  + "','" + req['c1'] + "','" + req['c1'] + "')"
         print strInsert
         cu.execute(strInsert)
         cx.commit()
         
         strInsert = "INSERT INTO fld_list (fld_no, bh, mcjgg, jxdm, jldw, yfsl, sfsl, bz ) VALUES ('" \
-            + req['fld_no'] + "','1','" + req['c7'] + "','" + req['c8'] + "','" + req['c9'] \
-            + "','" + req['c10'] + "','" + req['c11'] + "','--')"
+            + req['fld_no'] + "','1','" + req['c9'] + "','" + req['c10'] + "','" + req['c11'] \
+            + "','" + req['c12'] + "','" + req['c13'] + "','"+  req['c14'] +"')"
         print strInsert
         cu.execute(strInsert)
         cx.commit()

@@ -17,7 +17,7 @@ class makeFld:
         cx = getConn()
         cu = cx.cursor()
 
-        strSql = "SELECT data_no, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11 from temp_data WHERE data_type='fld' and use_flag='0' ORDER BY c1,c5" 
+        strSql = "SELECT data_no, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14 from temp_data WHERE data_type='fld' and use_flag='0' ORDER BY c1,c5" 
         print strSql
         cu.execute(strSql)
 
@@ -34,6 +34,9 @@ class makeFld:
             renderData['c9'] = fld[9]
             renderData['c10'] = fld[10]
             renderData['c11'] = fld[11]
+            renderData['c12'] = fld[12]
+            renderData['c13'] = fld[13]
+            renderData['c14'] = fld[14]
             break
 
         cu.close()

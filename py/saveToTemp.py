@@ -41,6 +41,9 @@ class saveToTemp:
         fld_data_col.append( req['fld_data_col_9'])
         fld_data_col.append( req['fld_data_col_10'])
         fld_data_col.append( req['fld_data_col_11'])
+        fld_data_col.append( req['fld_data_col_12'])
+        fld_data_col.append( req['fld_data_col_13'])
+        fld_data_col.append( req['fld_data_col_14'])
         print( fld_data_col )
         report_type =  req["report_type"]
 
@@ -67,7 +70,7 @@ class saveToTemp:
                     strText = row[iIndex-1]
                     strInsertTail = strInsertTail + ",'" + unicode(strText) + "'"
             data_no = getDataNo() + "_" + str(iCount)
-            strInsertHead = "INSERT INTO temp_data (data_no, data_type, use_flag, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11 ) VALUES  ( '" + data_no + "', '" + report_type + "', '0'"
+            strInsertHead = "INSERT INTO temp_data (data_no, data_type, use_flag, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14 ) VALUES  ( '" + data_no + "', '" + report_type + "', '0'"
             strSql = strInsertHead + strInsertTail + ")"
             iCount = iCount + 1 
             print strSql
