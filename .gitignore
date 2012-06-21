@@ -4,6 +4,7 @@
 *.jar
 
 *.swp
+*.bak
 py/static/upload/*.*
 
 # Packages
