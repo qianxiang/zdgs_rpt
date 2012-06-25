@@ -22,27 +22,49 @@ class makeFld:
         cu.execute(strSql)
 
         dataCount = 0
-        for fld in cu:
-            renderData['data_no'] = fld[0]
-            renderData['c1'] = fld[1]
-            renderData['c2'] = fld[2]
-            renderData['c3'] = fld[3]
-            renderData['c4'] = fld[4]
-            renderData['c5'] = fld[5]
-            renderData['c6'] = fld[6]
-            renderData['c7'] = fld[7]
-            renderData['c8'] = fld[8]
-            renderData['c9'] = fld[9]
-            renderData['c10'] = fld[10]
-            renderData['c11'] = fld[11]
-            renderData['c12'] = fld[12]
-            renderData['c13'] = fld[13]
-            renderData['c14'] = fld[14]
+        prevNo = 'abcdefghijklmn'
+        thisNo = ''
+        for sqlrow in cu:
             dataCount = dataCount + 1
-            break
+            renderData['c0_' +  str(dataCount) ] = sqlrow[0]
+            renderData['c1_' +  str(dataCount) ] = sqlrow[1]
+            renderData['c2_' +  str(dataCount) ] = sqlrow[2]
+            renderData['c3_' +  str(dataCount) ] = sqlrow[3]
+            renderData['c4_' +  str(dataCount) ] = sqlrow[4]
+            thisNo = sqlrow[5]
+            renderData['c5_' +  str(dataCount) ] = thisNo
+            renderData['c6_' +  str(dataCount) ] = sqlrow[6]
+            renderData['c7_' +  str(dataCount) ] = sqlrow[7]
+            renderData['c8_' +  str(dataCount) ] = sqlrow[8]
+            renderData['c9_' +  str(dataCount) ] = sqlrow[9]
+            renderData['c10_'+  str(dataCount) ] = sqlrow[10]
+            renderData['c11_'+  str(dataCount) ] = sqlrow[11]
+            renderData['c12_'+  str(dataCount) ] = sqlrow[12]
+            renderData['c13_'+  str(dataCount) ] = sqlrow[13]
+            renderData['c14_'+  str(dataCount) ] = sqlrow[14]
+
+            print "thisNo=" + thisNo
+            print "prevNo=" + prevNo
+            if cmp(prevNo, 'abcdefghijklmn')==0:
+                prevNo = thisNo
+            elif cmp(prevNo, thisNo) != 0 or dataCount > 5 :
+                dataCount = dataCount - 1
+                break
 
         cu.close()
         cx.close()
+
+        if dataCount < 6 :
+            for loopCount in range(dataCount+1,7):
+                renderData['c0_'+  str(loopCount) ] = '' 
+                renderData['c9_'+  str(loopCount) ] = ''
+                renderData['c10_'+ str(loopCount) ] = ''
+                renderData['c11_'+ str(loopCount) ] = ''
+                renderData['c12_'+ str(loopCount) ] = ''
+                renderData['c13_'+ str(loopCount) ] = ''
+                renderData['c14_'+ str(loopCount) ] = ''
+
+
 
         if dataCount == 0 :
             renderData['showMsg'] = "太好了，所有发料单都已经生成了。"

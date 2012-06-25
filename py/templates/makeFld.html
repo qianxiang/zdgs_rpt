@@ -10,20 +10,19 @@ $#上一行一定要写在第一行。
 </head>
 <body>
     <form name='form_1' method="post" action="saveFld">
-        <input type="hidden" name="data_no" value="$data['data_no']">
         <table border='1' width="80%">
             <tr>
                 <td>
-        客户名称：    <input type="text" name="c1" value="$data['c1']" size="20"> &nbsp; <br/>
-        客户地址：    <input type="text" name="c2" value="$data['c2']" size="20"> &nbsp; <br/>
-        联系电话：    <input type="text" name="c3" value="$data['c3']" size="20"> &nbsp; <br/>
+        客户名称：    <input type="text" name="c1_1" value="$data['c1_1']" size="20"> &nbsp; <br/>
+        客户地址：    <input type="text" name="c2_1" value="$data['c2_1']" size="20"> &nbsp; <br/>
+        联系电话：    <input type="text" name="c3_1" value="$data['c3_1']" size="20"> &nbsp; <br/>
                </td>
         <td>中国移动通信集团终端有限公司陕西分公司
             <br/>发 料 单
         </td>
         <td>
-        所属地市：    <input type="text" name="c4" value="$data['c4']" size="20"> &nbsp; <br/>
-        需求单号：    <input type="text" name="c5" value="$data['c5']" size="20"> &nbsp; <br/>
+        所属地市：    <input type="text" name="c4_1" value="$data['c4_1']" size="20"> &nbsp; <br/>
+        需求单号：    <input type="text" name="c5_1" value="$data['c5_1']" size="20"> &nbsp; <br/>
         流水号：      <input type="text" name="fld_no" value="$data['fld_no']" size="20"> &nbsp;
 
         </td>
@@ -33,9 +32,9 @@ $#上一行一定要写在第一行。
 <table border='1' width="80%">
     <tr>
           <td>
-        制单日期：    <input type="text" name="c6" value="$data['c6']" size="10"> &nbsp; 
-        出库日期：    <input type="text" name="c7" value="$data['c7']" size="10"> &nbsp; 
-        发料仓库：    <input type="text" name="c8" value="$data['c8']" size="20"> &nbsp; 
+        制单日期：    <input type="text" name="c6_1" value="$data['c6_1']" size="10"> &nbsp; 
+        出库日期：    <input type="text" name="c7_1" value="$data['c7_1']" size="10"> &nbsp; 
+        发料仓库：    <input type="text" name="c8_1" value="$data['c8_1']" size="20"> &nbsp; 
            </td>
     </tr>
 </table>
@@ -51,14 +50,60 @@ $#上一行一定要写在第一行。
         <td> 备注：  </td>
 </tr>
 <tr>
-        <td>1</td>
-        <td>  <input type="text" name="c9" value="$data['c9']" size="25"> &nbsp;  </td>
-        <td>  <input type="text" name="c10" value="$data['c10']" size="15"> &nbsp;  </td>
-        <td>   <input type="text" name="c11" value="$data['c11']" size="8"> &nbsp;  </td>
-        <td>   <input type="text" name="c12" value="$data['c12']" size="8"> &nbsp;  </td>
-        <td>    <input type="text" name="c13" value="$data['c13']" size="8"> &nbsp;  </td>
-        <td>    <input type="text" name="c14" value="$data['c14']" size="20"> &nbsp;  </td>
+        <td>1 <input type="text" name="c0_1" value="$data['c0_1']"></td>
+        <td>  <input type="text" name="c9_1" value="$data['c9_1']" size="25"> &nbsp;  </td>
+        <td>  <input type="text" name="c10_1" value="$data['c10_1']" size="15"> &nbsp;  </td>
+        <td>   <input type="text" name="c11_1" value="$data['c11_1']" size="4"> &nbsp;  </td>
+        <td>   <input type="text" name="c12_1" value="$data['c12_1']" size="4"> &nbsp;  </td>
+        <td>    <input type="text" name="c13_1" value="$data['c13_1']" size="4"> &nbsp;  </td>
+        <td>    <input type="text" name="c14_1" value="$data['c14_1']" size="20"> &nbsp;  </td>
 </tr>
+<tr>
+        <td>2 <input type="text" name="c0_2" value="$data['c0_2']"></td>
+        <td>  <input type="text" name="c9_2" value="$data['c9_2']" size="25"> &nbsp;  </td>
+        <td>  <input type="text" name="c10_2" value="$data['c10_2']" size="15"> &nbsp;  </td>
+        <td>   <input type="text" name="c11_2" value="$data['c11_2']" size="4"> &nbsp;  </td>
+        <td>   <input type="text" name="c12_2" value="$data['c12_2']" size="4"> &nbsp;  </td>
+        <td>    <input type="text" name="c13_2" value="$data['c13_2']" size="4"> &nbsp;  </td>
+        <td>    <input type="text" name="c14_2" value="$data['c14_2']" size="20"> &nbsp;  </td>
+</tr>
+<tr>
+        <td>3 <input type="text" name="c0_3" value="$data['c0_3']"></td>
+        <td>  <input type="text" name="c9_3" value="$data['c9_3']" size="25"> &nbsp;  </td>
+        <td>  <input type="text" name="c10_3" value="$data['c10_3']" size="15"> &nbsp;  </td>
+        <td>   <input type="text" name="c11_3" value="$data['c11_3']" size="4"> &nbsp;  </td>
+        <td>   <input type="text" name="c12_3" value="$data['c12_3']" size="4"> &nbsp;  </td>
+        <td>    <input type="text" name="c13_3" value="$data['c13_3']" size="4"> &nbsp;  </td>
+        <td>    <input type="text" name="c14_3" value="$data['c14_3']" size="20"> &nbsp;  </td>
+</tr>
+<tr>
+        <td>4 <input type="text" name="c0_4" value="$data['c0_4']"></td>
+        <td>  <input type="text" name="c9_4" value="$data['c9_4']" size="25"> &nbsp;  </td>
+        <td>  <input type="text" name="c10_4" value="$data['c10_4']" size="15"> &nbsp;  </td>
+        <td>   <input type="text" name="c11_4" value="$data['c11_4']" size="4"> &nbsp;  </td>
+        <td>   <input type="text" name="c12_4" value="$data['c12_4']" size="4"> &nbsp;  </td>
+        <td>    <input type="text" name="c13_4" value="$data['c13_4']" size="4"> &nbsp;  </td>
+        <td>    <input type="text" name="c14_4" value="$data['c14_4']" size="20"> &nbsp;  </td>
+</tr>
+<tr>
+        <td>5 <input type="text" name="c0_5" value="$data['c0_5']"></td>
+        <td>  <input type="text" name="c9_5" value="$data['c9_5']" size="25"> &nbsp;  </td>
+        <td>  <input type="text" name="c10_5" value="$data['c10_5']" size="15"> &nbsp;  </td>
+        <td>   <input type="text" name="c11_5" value="$data['c11_5']" size="4"> &nbsp;  </td>
+        <td>   <input type="text" name="c12_5" value="$data['c12_5']" size="4"> &nbsp;  </td>
+        <td>    <input type="text" name="c13_5" value="$data['c13_5']" size="4"> &nbsp;  </td>
+        <td>    <input type="text" name="c14_5" value="$data['c14_5']" size="20"> &nbsp;  </td>
+</tr>
+<tr>
+        <td>6 <input type="text" name="c0_6" value="$data['c0_6']"></td>
+        <td>  <input type="text" name="c9_6" value="$data['c9_6']" size="25"> &nbsp;  </td>
+        <td>  <input type="text" name="c10_6" value="$data['c10_6']" size="15"> &nbsp;  </td>
+        <td>   <input type="text" name="c11_6" value="$data['c11_6']" size="4"> &nbsp;  </td>
+        <td>   <input type="text" name="c12_6" value="$data['c12_6']" size="4"> &nbsp;  </td>
+        <td>    <input type="text" name="c13_6" value="$data['c13_6']" size="4"> &nbsp;  </td>
+        <td>    <input type="text" name="c14_6" value="$data['c14_6']" size="20"> &nbsp;  </td>
+</tr>
+
 
 </table>
 <br/>
@@ -68,7 +113,7 @@ $#上一行一定要写在第一行。
 <br/>
 <br/>
 <br/>
-           <div align="right"> <input type="button" id="b_2" value="跳过错误数据"></div>
+           <div align="right"> <input type="button" id="b_2" value="跳过一条错误数据"></div>
 
 </form>
 </body>
