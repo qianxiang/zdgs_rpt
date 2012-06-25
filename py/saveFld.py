@@ -5,7 +5,36 @@ import time
 import web
 import xlsUtil
 
+from lazy import checkInput
+
 render = web.template.render('templates')
+
+class skipThisOne:
+    def POST(self):
+        flag = True
+        runData = {'runFlag':True,'showMsg':'OK'}
+        
+        req = web.input()
+        # 检查必填项是否都有值
+        mustName = ['data_no',]
+        runData = checkInput( req, mustName, runData)
+
+        cx = getConn()
+        cu = cx.cursor()
+        
+        strUpdate = "UPDATE temp_data SET use_flag='2' where data_no='" + req['data_no'] + "'"
+        print strUpdate
+        cu.execute(strUpdate)
+        cx.commit()
+
+        cu.close()
+        cx.close
+        
+        raise web.redirect('/')
+
+
+
+
 
 class saveFld:
     def POST(self):
@@ -17,16 +46,12 @@ class saveFld:
         
         # 检查必填项是否都有值
         mustName = ['fld_no','data_no','c1','c2','c3','c4','c5','c6','c7','c8','c9','c9','c10','c11']
-        for name in mustName:
-            if req.has_key(name) :
-                flag = True
-            else:
-                flag = False
-                msg = msg + " " + name
+        
+        renderData = checkInput( req, mustName, renderData)
 
-        if not flag :
-            msg = msg + "输入参数不正确，请按照正常流程使用系统。"
-            renderData['showMsg'] = msg
+        if not renderData['runFlag']:
+            msg = "输入参数不正确，请按照正常操作流程使用系统。"
+            renderData['showMsg'] = msg + renderData['showMsg']  
             return render.err(renderData)
 
         cx = getConn()
@@ -66,6 +91,8 @@ class saveFld:
         ip = host[:tempIndex]
 
         raise web.redirect('http://'+ ip +':8000/zdgs/report?type=fld&id=' + req['fld_no'] )
+
+
 
 
 def getConn():

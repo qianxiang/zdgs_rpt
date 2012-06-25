@@ -6,6 +6,7 @@ import xlsUtil
 from saveToTemp import saveToTemp 
 from makeFld import makeFld 
 from saveFld import saveFld 
+from saveFld import skipThisOne 
 import lazy 
 import up
 
@@ -16,6 +17,7 @@ urls = (
     '/previewPage', 'previewPage' ,
     '/makeFld', 'makeFld' ,
     '/saveFld', 'saveFld' ,
+    '/skipThisOne', 'skipThisOne' ,
     '/app_up', up.app_up ,
     '/saveToTemp', "saveToTemp",
     '/favicon.ico', 'favicon',

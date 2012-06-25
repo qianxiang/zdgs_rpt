@@ -9,7 +9,7 @@ $#上一行一定要写在第一行。
     <script src="static/js/makeFld.js"></script> 
 </head>
 <body>
-    <form method="post" action="saveFld">
+    <form name='form_1' method="post" action="saveFld">
         <input type="hidden" name="data_no" value="$data['data_no']">
         <table border='1' width="80%">
             <tr>
@@ -61,7 +61,14 @@ $#上一行一定要写在第一行。
 </tr>
 
 </table>
-            <input type="submit" name="s_1" value="生成报表"></span>
+<br/>
+          <span> <input type="submit" id="b_1" value="生成报表"></span>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+           <div align="right"> <input type="button" id="b_2" value="跳过错误数据"></div>
 
 </form>
 </body>
