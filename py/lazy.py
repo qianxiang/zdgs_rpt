@@ -25,3 +25,6 @@ def checkInput( inputValue, mustName, runData ):
 
     return runData
 
+def getConn():
+    return sqlite3.connect("/Applications/Java/apache-tomcat-7.0.27/bin/test.db")
+

@@ -6,6 +6,7 @@ import web
 import xlsUtil
 
 from lazy import checkInput
+from lazy import getConn
 
 render = web.template.render('templates')
 
@@ -127,6 +128,46 @@ class saveFld:
             print strUpdate
             cu.execute(strUpdate)
         
+        if cmp(req['c0_7'], '')!=0 :
+            strInsert = "INSERT INTO fld_list (fld_no, bh, mcjgg, jxdm, jldw, yfsl, sfsl, bz ) VALUES ('" \
+                + req['fld_no'] + "','7','" + req['c9_7'] + "','" + req['c10_7'] + "','" + req['c11_7'] \
+                + "','" + req['c12_7'] + "','" + req['c13_7'] + "','"+  req['c14_7'] +"')"
+            print strInsert
+            cu.execute(strInsert)
+            strUpdate = "UPDATE temp_data SET use_flag='1' where data_no='" + req['c0_7'] + "'"
+            print strUpdate
+            cu.execute(strUpdate)
+        
+        if cmp(req['c0_8'], '')!=0 :
+            strInsert = "INSERT INTO fld_list (fld_no, bh, mcjgg, jxdm, jldw, yfsl, sfsl, bz ) VALUES ('" \
+                + req['fld_no'] + "','8','" + req['c9_8'] + "','" + req['c10_8'] + "','" + req['c11_8'] \
+                + "','" + req['c12_8'] + "','" + req['c13_8'] + "','"+  req['c14_8'] +"')"
+            print strInsert
+            cu.execute(strInsert)
+            strUpdate = "UPDATE temp_data SET use_flag='1' where data_no='" + req['c0_8'] + "'"
+            print strUpdate
+            cu.execute(strUpdate)
+        
+        if cmp(req['c0_9'], '')!=0 :
+            strInsert = "INSERT INTO fld_list (fld_no, bh, mcjgg, jxdm, jldw, yfsl, sfsl, bz ) VALUES ('" \
+                + req['fld_no'] + "','9','" + req['c9_9'] + "','" + req['c10_9'] + "','" + req['c11_9'] \
+                + "','" + req['c12_9'] + "','" + req['c13_9'] + "','"+  req['c14_9'] +"')"
+            print strInsert
+            cu.execute(strInsert)
+            strUpdate = "UPDATE temp_data SET use_flag='1' where data_no='" + req['c0_9'] + "'"
+            print strUpdate
+            cu.execute(strUpdate)
+        
+        if cmp(req['c0_10'], '')!=0 :
+            strInsert = "INSERT INTO fld_list (fld_no, bh, mcjgg, jxdm, jldw, yfsl, sfsl, bz ) VALUES ('" \
+                + req['fld_no'] + "','10','" + req['c9_10'] + "','" + req['c10_10'] + "','" + req['c11_10'] \
+                + "','" + req['c12_10'] + "','" + req['c13_10'] + "','"+  req['c14_10'] +"')"
+            print strInsert
+            cu.execute(strInsert)
+            strUpdate = "UPDATE temp_data SET use_flag='1' where data_no='" + req['c0_10'] + "'"
+            print strUpdate
+            cu.execute(strUpdate)
+        
         cx.commit()
         cu.close()
         cx.close()
@@ -142,9 +183,4 @@ class saveFld:
 
         raise web.redirect('http://'+ ip +':8000/zdgs/report?type=fld&id=' + req['fld_no'] )
 
-
-
-
-def getConn():
-    return sqlite3.connect("/Applications/Java/apache-tomcat-7.0.27/bin/test.db")
 

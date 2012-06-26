@@ -5,6 +5,9 @@ import time
 import web
 import xlsUtil
 
+from lazy import getConn
+from lazy import getYmdhms
+
 render = web.template.render('templates')
 
 
@@ -69,7 +72,7 @@ class saveToTemp:
                     iIndex = int(strIndex)
                     strText = row[iIndex-1]
                     strInsertTail = strInsertTail + ",'" + unicode(strText) + "'"
-            data_no = getDataNo() + "_" + str(iCount)
+            data_no = getYmdhms() + "_" + str(iCount)
             strInsertHead = "INSERT INTO temp_data (data_no, data_type, use_flag, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14 ) VALUES  ( '" + data_no + "', '" + report_type + "', '0'"
             strSql = strInsertHead + strInsertTail + ")"
             iCount = iCount + 1 
@@ -123,9 +126,4 @@ def saveNbdbd():
 def saveRkd():
     return ""
 
-def getDataNo():
-    return time.strftime('%Y%m%d%H%M%S',time.localtime(time.time())) 
-
-def getConn():
-    return sqlite3.connect("/Applications/Java/apache-tomcat-7.0.27/bin/test.db")
 

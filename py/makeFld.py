@@ -5,6 +5,9 @@ import time
 import web
 import xlsUtil
 
+from lazy import getConn
+from lazy import getYmdhms
+
 render = web.template.render('templates')
 
 class makeFld:
@@ -47,15 +50,18 @@ class makeFld:
             print "prevNo=" + prevNo
             if cmp(prevNo, 'abcdefghijklmn')==0:
                 prevNo = thisNo
-            elif cmp(prevNo, thisNo) != 0 or dataCount > 5 :
+            elif cmp(prevNo, thisNo) != 0 :
                 dataCount = dataCount - 1
+                break
+            elif dataCount == 10 :
                 break
 
         cu.close()
         cx.close()
 
-        if dataCount < 6 :
-            for loopCount in range(dataCount+1,7):
+        if dataCount < 10 :
+            for loopCount in range(dataCount+1,11):
+                print "tian chong kong bai hang"
                 renderData['c0_'+  str(loopCount) ] = '' 
                 renderData['c9_'+  str(loopCount) ] = ''
                 renderData['c10_'+ str(loopCount) ] = ''
@@ -70,15 +76,11 @@ class makeFld:
             renderData['showMsg'] = "太好了，所有发料单都已经生成了。"
             return render.msg(renderData)        
             
-        renderData['fld_no'] = getDataNo()
+        renderData['fld_no'] = getYmdhms()
         print renderData
 
         return render.makeFld(renderData)
 
         
-def getDataNo():
-    return time.strftime('%Y%m%d%H%M%S',time.localtime(time.time())) 
 
-def getConn():
-    return sqlite3.connect("/Applications/Java/apache-tomcat-7.0.27/bin/test.db")
 
