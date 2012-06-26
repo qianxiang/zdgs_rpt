@@ -57,7 +57,7 @@ class upload:
             # creates the file where the uploaded file should be stored
 
             fullpath = filedir +'/'+ lazy.getYmdhms() + '.xls'
-            fout = open( fullpath,'w') 
+            fout = open( fullpath,'wb') #使用 wb 是为了在windows下能正确的上传文件。
             
             # writes the uploaded file to the newly created file.
             fout.write(x.myfile.file.read())            
