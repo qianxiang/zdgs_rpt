@@ -8,9 +8,11 @@ import com.itextpdf.text.pdf.PdfStamper;
 
 public class PdfFiels {
 
-	static public void manipulatePdf(String src, String dest, IReport report)
+	static public void manipulatePdf(String templatePath, String dest, IReport report)
 			throws Exception {
-		PdfReader reader = new PdfReader(src);
+		PdfReader reader = new PdfReader(templatePath);
+		
+		// 如果文件存在，Java会覆盖它。
 		PdfStamper stamper = new PdfStamper(reader, new FileOutputStream(dest));
 		reader.close();
 		AcroFields form = stamper.getAcroFields();
