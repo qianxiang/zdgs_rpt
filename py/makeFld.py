@@ -5,8 +5,7 @@ import time
 import web
 import xlsUtil
 
-from lazy import getConn
-from lazy import getYmdhms
+import lazy
 
 render = web.template.render('templates')
 
@@ -17,7 +16,7 @@ class makeFld:
         
         req = web.input()
         
-        cx = getConn()
+        cx = lazy.getConn()
         cu = cx.cursor()
 
         strSql = "SELECT data_no, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14 from temp_data WHERE data_type='fld' and use_flag='0' ORDER BY c1,c5" 
@@ -76,7 +75,7 @@ class makeFld:
             renderData['showMsg'] = "太好了，所有发料单都已经生成了。"
             return render.msg(renderData)        
             
-        renderData['fld_no'] = getYmdhms()
+        renderData['fld_no'] = lazy.getFldNo()
         print renderData
 
         return render.makeFld(renderData)

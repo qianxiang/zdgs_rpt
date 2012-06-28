@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-  
 
 /*
 序号    int
@@ -5,6 +6,16 @@
 编号    char 32
 其他    char 64
 */
+
+
+/* 序号表
+*/
+CREATE TABLE  qx_sequence (
+  s_name CHAR(32), 
+  s_value int, 
+  s_comment CHAR(128),
+  PRIMARY KEY(s_name ASC)
+);
 
 
 /* 数据导入临时表
