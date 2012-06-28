@@ -10,6 +10,34 @@ from lazy import getConn
 
 render = web.template.render('templates')
 
+class showReport:
+    def GET(self):
+        flag = True
+        runData = {'runFlag':True,'showMsg':'OK'}
+        
+        req = web.input()
+        # 检查必填项是否都有值
+        mustName = ['type','id']
+        runData = checkInput( req, mustName, runData)
+
+        if not runData['runFlag']:
+            msg = "输入参数不正确，请按照正常操作流程使用系统。"
+            runData['showMsg'] = msg + runData['showMsg']  
+            return render.err(runData)
+        
+        host = web.ctx.get('host', '192.168.1.101')
+        tempIndex = host.find(':')
+        if tempIndex < 1 :
+            runData['runFlag'] = False
+
+        print host[:tempIndex]
+        ip = host[:tempIndex]
+
+        runData['iframeUrl'] = 'http://'+ ip +':8000/zdgs/report?type=' + req['type'] +'&id=' + req['id']
+        return render.showreport(runData)
+        
+
+
 class skipThisOne:
     def POST(self):
         flag = True
@@ -181,7 +209,7 @@ class saveFld:
         print host[:tempIndex]
         ip = host[:tempIndex]
 
-        raise web.redirect('/showreport?type=fld&id=' + req['fld_no'] )
+        raise web.redirect('/showReport?type=fld&id=' + req['fld_no'] )
     # raise web.redirect('http://'+ ip +':8000/zdgs/report?type=fld&id=' + req['fld_no'] )
 
 

@@ -7,6 +7,7 @@ from saveToTemp import saveToTemp
 from makeFld import makeFld 
 from saveFld import saveFld 
 from saveFld import skipThisOne 
+from saveFld import showReport
 import lazy 
 import up
 
@@ -17,6 +18,7 @@ urls = (
     '/previewPage', 'previewPage' ,
     '/makeFld', 'makeFld' ,
     '/saveFld', 'saveFld' ,
+    '/showReport', 'showReport' ,
     '/skipThisOne', 'skipThisOne' ,
     '/app_up', up.app_up ,
     '/saveToTemp', "saveToTemp",
