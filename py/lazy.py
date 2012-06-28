@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-  
 
 import time
+import sqlite3
 
 def getYmdhms():
     return time.strftime('%Y%m%d%H%M%S',time.localtime(time.time())) 
