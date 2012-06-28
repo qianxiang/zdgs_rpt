@@ -181,6 +181,7 @@ class saveFld:
         print host[:tempIndex]
         ip = host[:tempIndex]
 
-        raise web.redirect('http://'+ ip +':8000/zdgs/report?type=fld&id=' + req['fld_no'] )
+        raise web.redirect('/showreport?type=fld&id=' + req['fld_no'] )
+    # raise web.redirect('http://'+ ip +':8000/zdgs/report?type=fld&id=' + req['fld_no'] )
 
 
