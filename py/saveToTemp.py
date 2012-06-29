@@ -64,20 +64,22 @@ class saveToTemp:
         cu = cx.cursor()
 
         for row in sheet1:
-            strInsertTail = ''
-            for strIndex in fld_data_col :
-                if strIndex == u'' :
-                    strInsertTail = strInsertTail + ",''"
-                else:
-                    iIndex = int(strIndex)
-                    strText = row[iIndex-1]
-                    strInsertTail = strInsertTail + ",'" + unicode(strText) + "'"
-            data_no = getYmdhms() + "_" + str(iCount)
-            strInsertHead = "INSERT INTO temp_data (data_no, data_type, use_flag, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14 ) VALUES  ( '" + data_no + "', '" + report_type + "', '0'"
-            strSql = strInsertHead + strInsertTail + ")"
+            """ 第一条数据是标题，不需要导入，所以把第 0 条跳过 """
+            if iCount > 0 :
+                strInsertTail = ''
+                for strIndex in fld_data_col :
+                    if strIndex == u'' :
+                        strInsertTail = strInsertTail + ",''"
+                    else:
+                        iIndex = int(strIndex)
+                        strText = row[iIndex-1]
+                        strInsertTail = strInsertTail + ",'" + unicode(strText) + "'"
+                data_no = getYmdhms() + "_" + str(iCount)
+                strInsertHead = "INSERT INTO temp_data (data_no, data_type, use_flag, c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11, c12, c13, c14 ) VALUES  ( '" + data_no + "', '" + report_type + "', '0'"
+                strSql = strInsertHead + strInsertTail + ")"
+                print strSql
+                cu.execute(strSql)
             iCount = iCount + 1 
-            print strSql
-            cu.execute(strSql)
         cx.commit()
         cu.close()
         #cx.close()
