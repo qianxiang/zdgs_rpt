@@ -78,6 +78,8 @@ class previewPage:
     def GET(self):
         #web.debug(name)
 
+        runData = {'runFlag':True}
+
         user_data = web.input()
         if user_data.has_key("filename") :
             filename = user_data.filename
@@ -85,8 +87,8 @@ class previewPage:
             data['filename'] = filename
             return render.selectcolumn(data)        
         else:
-            showMsg = "请先上传需要打印的excel文件..." 
-            return render.msg(showMsg)        
+            runData['showMsg']= "请先上传需要打印的excel文件..." 
+            return render.msg(runData)        
 
 class defaultPage:
     def GET(self, name):

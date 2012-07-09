@@ -1,16 +1,19 @@
 
 
-chagePic = function(){
-    //alert("def");
-    if( index < pics.length ){
-        $("#pic_1").attr("src", pics[index]);
-        index = index + 1;
+//titleStr = '终端公司制单打印系统 by 陕西仟翔电子有限责任公司'
+titleStr = '中国移动终端陕西公司业务单据系统 by 仟翔电子'
+
+
+$(document).ready(function(){
+    titleText = $('title').html();
+    titleText = titleText.trim();
+    if( titleText == '' ){
+        $('title').html( titleStr );
     }
-    else{
-        //clearInterval( fun_name );
-        index = 0;
-    }
-}
+});
+
+
+
 
 
 

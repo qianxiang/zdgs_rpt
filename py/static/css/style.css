@@ -1,3 +1,21 @@
+/*
+
+TEXTAREA {
+	color:#333333;
+	BACKGROUND-COLOR: #DFEFFF;
+	BORDER-BOTTOM: 1px solid;
+	BORDER-LEFT: 1px solid;
+
+	BORDER-TOP: 1px solid
+	BORDER-RIGHT: 1px solid #A6D2FF;
+
+	font-size: 12pt;
+	FONT-FAMILY:宋体, Arial, Helvetica
+}
+
+
+
+*/
 A:link {
 	color:#2B2BD5; 
 	text-decoration:none
@@ -27,32 +45,20 @@ TABLE {
 	BORDER-COLOR: #A6D2FF;
 	line-height: 13pt;
 	background-color: #FFFFFF;
-	FONT-size: 9pt;
-	FONT-FAMILY:宋体, Arial, Helvetica
+	FONT-size: 12pt;
+	FONT-FAMILY: Arial, Helvetica
 }
 
 TD {
-	FONT-size: 9pt;
+	FONT-size: 12pt;
 	line-height: 13pt;
 	WORD-WRAP: break-word;
 	FONT-FAMILY:宋体, Arial, Helvetica
 }
 
-TEXTAREA {
-	color:#333333;
-	BACKGROUND-COLOR: #DFEFFF;
-	BORDER-BOTTOM: 1px solid;
-	BORDER-LEFT: 1px solid;
-
-	BORDER-TOP: 1px solid
-	BORDER-RIGHT: 1px #A6D2FF;
-
-	font-size: 9pt;
-	FONT-FAMILY:宋体, Arial, Helvetica
-}
 
 SELECT {
-	FONT-size: 9pt;
+	FONT-size: 12pt;
 	line-height: 13pt;
 	FONT-FAMILY:宋体, Arial, Helvetica;
 	BORDER-BOTTOM: 1px #A6D2FF;
@@ -66,12 +72,11 @@ SELECT {
 INPUT {
 
 	BACKGROUND-COLOR: #DFEFFF;
-	CURSOR: HAND;
 	BORDER-TOP-WIDTH: 1px;
 	PADDING-RIGHT: 1px;
 	PADDING-LEFT: 1px;
 	BORDER-LEFT-WIDTH: 1px;
-	FONT-SIZE: 9pt;
+	FONT-SIZE: 12pt;
 	BORDER-LEFT-COLOR: #cccccc;
 	BORDER-BOTTOM-WIDTH: 1px;
 	BORDER-BOTTOM-COLOR: #cccccc;
@@ -89,14 +94,7 @@ INPUT {
 
 BODY 
 {
-    SCROLLBAR-FACE-COLOR: rgb(218,234,247); 
-    SCROLLBAR-HIGHLIGHT-COLOR: #ffffff; 
-    SCROLLBAR-SHADOW-COLOR: #ffffff; 
-    SCROLLBAR-3DLIGHT-COLOR: #abd4f8; 
-    SCROLLBAR-ARROW-COLOR: #336699; 
-    SCROLLBAR-TRACK-COLOR: rgb(218,234,247); 
-    SCROLLBAR-DARKSHADOW-COLOR: #006699; 
-    BACKGROUND-COLOR: #deebf7;
+      BACKGROUND-COLOR: #deebf7;
 }
 
 P.title {
