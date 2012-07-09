@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-  
 
-import util
+import lazy
 
 if __name__ == "__main__":
-    print util.getYmdhms()
+    print lazy.getYmdhms()
