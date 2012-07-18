@@ -15,9 +15,9 @@ $#上一行一定要写在第一行。
         <table border='1' width="95%">
             <tr>
                 <td>
-        客户名称：    <input type="text" name="c1_1" value="$data['c1_1']" size="20"> &nbsp; <br/>
-        客户地址：    <input type="text" name="c2_1" value="$data['c2_1']" size="20"> &nbsp; <br/>
-        联系电话：    <input type="text" name="c3_1" value="$data['c3_1']" size="20"> &nbsp; <br/>
+        客户名称：    <input type="text" name="c1_1" value="$data['c1_1']" size="25"> &nbsp; <br/>
+        客户地址：    <input type="text" name="c2_1" value="$data['c2_1']" size="25"> &nbsp; <br/>
+        联系电话：    <input type="text" name="c3_1" value="$data['c3_1']" size="25"> &nbsp; <br/>
                </td>
         <td align='center' >中国移动通信集团终端有限公司陕西分公司
             <br/> <br/>发 料 单
@@ -145,7 +145,10 @@ $#上一行一定要写在第一行。
 
 </table>
 <br/>
-          <span> <input type="submit" id="b_1" value="生成报表"></span>
+<span> 
+    <input type="submit" id="b_1" value="生成报表">
+    <input type="checkbox" id="c_1" name="automode" value="y" $data['automodeChecked'] >开启自动模式
+</span>
 <br/>
 <br/>
 <br/>

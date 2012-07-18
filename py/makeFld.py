@@ -78,6 +78,12 @@ class makeFld:
         renderData['fld_no'] = lazy.getFldNo()
         print renderData
 
+        pageCookie = web.cookies(automode='n')
+        if cmp(pageCookie.automode, 'y') == 0:
+            renderData['automodeChecked'] = 'checked'
+        else:
+            renderData['automodeChecked'] = ''
+
         return render.makeFld(renderData)
 
         

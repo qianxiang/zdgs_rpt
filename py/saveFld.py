@@ -61,10 +61,6 @@ class skipThisOne:
         
         raise web.redirect('/')
 
-
-
-
-
 class saveFld:
     def POST(self):
         flag = True
@@ -94,7 +90,14 @@ class saveFld:
             + "','" + req['c4_1'] + "','" + req['c5_1']  + "','" + req['fld_no'] + "','" + req['c6_1'] \
             + "','" + req['c7_1'] + "','" + req['c8_1']  + "','" + req['c1_1'] + "','" + req['c1_1'] + "')"
         print strInsert
-        cu.execute(strInsert)
+        try:
+            cu.execute(strInsert)
+        except:
+            renderData['runFlag'] = False
+            msg = "被禁止的数据库操作，请按照正常操作流程使用系统。"
+            renderData['showMsg'] = msg + renderData['showMsg']  
+            return render.err(renderData)
+
         
         strInsert = "INSERT INTO fld_list (fld_no, bh, mcjgg, jxdm, jldw, yfsl, sfsl, bz ) VALUES ('" \
             + req['fld_no'] + "','1','" + req['c9_1'] + "','" + req['c10_1'] + "','" + req['c11_1'] \
@@ -209,7 +212,13 @@ class saveFld:
         print host[:tempIndex]
         ip = host[:tempIndex]
 
-        raise web.redirect('/showReport?type=fld&id=' + req['fld_no'] )
+        
+        if req.has_key('automode') :
+            web.setcookie('automode', 'y', 3600000)
+            raise web.redirect('/makeFld')
+        else:    
+            web.setcookie('automode', 'n', 3600000)
+            raise web.redirect('/showReport?type=fld&id=' + req['fld_no'] )
     # raise web.redirect('http://'+ ip +':8000/zdgs/report?type=fld&id=' + req['fld_no'] )
 
 
