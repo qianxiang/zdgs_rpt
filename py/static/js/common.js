@@ -10,7 +10,10 @@ $(document).ready(function(){
     if( titleText == '' ){
         $('title').html( titleStr );
     }
+
+
 });
+
 
 
 

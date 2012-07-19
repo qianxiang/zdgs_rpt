@@ -75,7 +75,8 @@ class makeFld:
             renderData['showMsg'] = "太好了，所有发料单都已经生成了。"
             return render.msg(renderData)        
             
-        renderData['fld_no'] = lazy.getFldNo()
+        #renderData['fld_no'] = lazy.getFldNo()
+        renderData['fld_no'] = 'Auto'
         print renderData
 
         pageCookie = web.cookies(automode='n')

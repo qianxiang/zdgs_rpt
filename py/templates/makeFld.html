@@ -23,9 +23,9 @@ $#上一行一定要写在第一行。
             <br/> <br/>发 料 单
         </td>
         <td>
-        所属地市：    <input type="text" name="c4_1" value="$data['c4_1']" size="20"> &nbsp; <br/>
-        需求单号：    <input type="text" name="c5_1" value="$data['c5_1']" size="20"> &nbsp; <br/>
-        流水号：&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="fld_no" value="$data['fld_no']" size="20">
+        所属地市：<input type="text" name="c4_1" value="$data['c4_1']" size="20"> &nbsp; <br/>
+        需求单号：<input type="text" name="c5_1" value="$data['c5_1']" size="20"> &nbsp; <br/>
+        流&nbsp;&nbsp;水&nbsp;&nbsp;号：<input type="text" name="fld_no" value="$data['fld_no']" size="20" readonly >
         </td>
     </tr>
 </table>
@@ -147,7 +147,7 @@ $#上一行一定要写在第一行。
 <br/>
 <span> 
     <input type="submit" id="b_1" value="生成报表">
-    <input type="checkbox" id="c_1" name="automode" value="y" $data['automodeChecked'] >开启自动模式
+    <input type="checkbox" id="automode" name="automode" value="y" $data['automodeChecked'] >开启自动模式 <span id='countdownText'>程序将在 <span id='countdown'></span> 秒后自动提交。</span>
 </span>
 <br/>
 <br/>

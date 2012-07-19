@@ -5,8 +5,7 @@ import time
 import web
 import xlsUtil
 
-from lazy import checkInput
-from lazy import getConn
+import lazy 
 
 render = web.template.render('templates')
 
@@ -18,7 +17,7 @@ class showReport:
         req = web.input()
         # 检查必填项是否都有值
         mustName = ['type','id']
-        runData = checkInput( req, mustName, runData)
+        runData = lazy.checkInput( req, mustName, runData)
 
         if not runData['runFlag']:
             msg = "输入参数不正确，请按照正常操作流程使用系统。"
@@ -46,9 +45,9 @@ class skipThisOne:
         req = web.input()
         # 检查必填项是否都有值
         mustName = ['c0_1',]
-        runData = checkInput( req, mustName, runData)
+        runData = lazy.checkInput( req, mustName, runData)
 
-        cx = getConn()
+        cx = lazy.getConn()
         cu = cx.cursor()
         
         strUpdate = "UPDATE temp_data SET use_flag='2' where data_no='" + req['c0_1'] + "'"
@@ -74,14 +73,15 @@ class saveFld:
                 ,'c7_1','c8_1','c9_1','c9_1','c10_1','c11_1' \
                 ]
         
-        renderData = checkInput( req, mustName, renderData)
+        renderData = lazy.checkInput( req, mustName, renderData)
+        req['fld_no'] = lazy.getFldNo()
 
         if not renderData['runFlag']:
             msg = "输入参数不正确，请按照正常操作流程使用系统。"
             renderData['showMsg'] = msg + renderData['showMsg']  
             return render.err(renderData)
 
-        cx = getConn()
+        cx = lazy.getConn()
         cu = cx.cursor()
 
         strInsert = "INSERT INTO fld (fld_no, khmc, khdz, lxdh, ssds, xqdh, lsh, " \
