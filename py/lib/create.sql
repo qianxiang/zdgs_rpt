@@ -46,6 +46,14 @@ CREATE TABLE  temp_data (
   c20 CHAR(128) 
 );
 
+/* 机型代码表
+*/
+CREATE TABLE phone_info (
+  phone_name CHAR(64) NOT NULL, 
+  phone_no   CHAR(64) NOT NULL,
+  PRIMARY KEY(phone_name ASC)
+);
+
 
 /* 发料单
 fld_no, 客户名称，客户地址，联系电话，所属地市，需求单号，流水号
