@@ -33,6 +33,15 @@ class showReport:
         ip = host[:tempIndex]
 
         runData['iframeUrl'] = 'http://'+ ip +':8000/zdgs/report?type=' + req['type'] +'&id=' + req['id']
+        pageCookie = web.cookies(automode='n')
+        if cmp(pageCookie.automode, 'y') == 0:
+            runData['automodeFlag'] = 'y'
+            runData['automodeText'] = '自动模式，5秒后跳转到 下一张单据。'
+        else:
+            runData['automodeFlag'] = 'n'
+            runData['automodeText'] = ''
+
+        
         return render.showreport(runData)
         
 
@@ -215,10 +224,10 @@ class saveFld:
         
         if req.has_key('automode') :
             web.setcookie('automode', 'y', 3600000)
-            raise web.redirect('/makeFld')
+            #raise web.redirect('/makeFld')
         else:    
             web.setcookie('automode', 'n', 3600000)
-            raise web.redirect('/showReport?type=fld&id=' + req['fld_no'] )
+        raise web.redirect('/showReport?type=fld&id=' + req['fld_no'] )
     # raise web.redirect('http://'+ ip +':8000/zdgs/report?type=fld&id=' + req['fld_no'] )
 
 

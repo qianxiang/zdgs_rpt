@@ -6,12 +6,16 @@ $def with ( renderData )
         <link href="static/css/style.css" rel="stylesheet" type="text/css" />
         <script src="static/js/jquery-1.7.1.min.js"></script> 
         <script src="static/js/common.js"></script> 
+        <script src="static/js/showreport.js"></script> 
 
     </head>
     <body>
         <iframe src="$renderData['iframeUrl']" width="100%" height="95%" border='0' >
         </iframe>
         <br/>
-        <h2><a href='/makeFld'> 制作下一张单据 </a></h2>
+        <h2><a href='/makeFld' id='nextOne' > 制作下一张单据 </a>  </h2>
+        $renderData['automodeText']
+        <input type="hidden" name="automode" value="$renderData['automodeFlag']" >
+        
     </body>
 </html>
