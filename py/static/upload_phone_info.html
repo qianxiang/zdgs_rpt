@@ -18,17 +18,38 @@
             <input type="submit" name="btn_s" value="上传数据" />
             <br/> 
             <br/> 
-       <span width="50%">
        <div align="left">
+       <span>
             <br/> 
-            文件格式示例(机型名称在前，机型代码在后，空格分隔)：
+            文件格式示例(机型代码在前，机型名称在后，空格分隔)：
             <br/> 
             <br/> 
-            TD TCL E708 &nbsp;&nbsp;&nbsp;&nbsp; 100121290<br/>
-            TD大唐TG200L &nbsp;&nbsp;&nbsp;&nbsp; 100120850<br/>
-            TD多普达A8188 &nbsp;&nbsp;&nbsp;&nbsp; 400210<br/>
-       </div>
+            100121290 &nbsp;&nbsp;&nbsp;&nbsp; TD TCL E708 <br/>
+            100120850 &nbsp;&nbsp;&nbsp;&nbsp; TD大唐TG200L <br/>
+            400210    &nbsp;&nbsp;&nbsp;&nbsp; TD多普达A8188 <br/>
+            ......<br/>
+            <br/> 
        </span>
+            <br/> 
+            <br/> 
+            <span class='design_doc' >
+                处理规则：
+            <br/> 
+           1. 空行（0长度 or 全由空白字符组成），直接忽略。
+            <br/> 
+           2. 有内容的行，删除前后空白。
+            <br/> 
+           3. 之后依空格分隔，第一个单元被认为是 机型代码。
+            <br/> 
+           4. 其他的部分，作为机型名称，两端空白会被删除，中间的空白保持不变。
+            <br/> 
+           5. 如果没有办法用空格分隔为两个部分，会报错，无法继续处理。
+            <br/> 
+           6. 一但出错，就会终止处理，不管其他数据是否正确。
+            <br/> 
+           7. 出错后只能修改错误后重新上传。
+       </span>
+       </div>
        </form>
    </center>
     </body>
