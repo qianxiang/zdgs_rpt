@@ -49,9 +49,9 @@ CREATE TABLE  temp_data (
 /* 机型代码表
 */
 CREATE TABLE phone_info (
-  phone_name CHAR(64) NOT NULL, 
-  phone_no   CHAR(64) NOT NULL,
-  PRIMARY KEY(phone_name ASC)
+    uid INTEGER PRIMARY KEY AUTOINCREMENT,
+    phone_name CHAR(64) NOT NULL, 
+    phone_no   CHAR(64) NOT NULL
 );
 
 
@@ -60,19 +60,19 @@ fld_no, 客户名称，客户地址，联系电话，所属地市，需求单号
 ，制单日期，出库日期，发料仓库，金额大写，金额合计
 */
 CREATE TABLE fld (
-  fld_no CHAR(32) NOT NULL, 
-  khmc CHAR(64), 
-  khdz CHAR(128), 
-  lxdh CHAR(64), 
-  ssds CHAR(64), 
-  xqdh CHAR(64), 
-  lsh  CHAR(64),
-  zdrq CHAR(16), 
-  ckrq CHAR(16), 
-  flck CHAR(64),
-  jedx CHAR(64),
-  jehj CHAR(64),
-  PRIMARY KEY(fld_no ASC)
+    fld_no CHAR(32) NOT NULL, 
+    khmc CHAR(64), 
+    khdz CHAR(128), 
+    lxdh CHAR(64), 
+    ssds CHAR(64), 
+    xqdh CHAR(64), 
+    lsh  CHAR(64),
+    zdrq CHAR(16), 
+    ckrq CHAR(16), 
+    flck CHAR(64),
+    jedx CHAR(64),
+    jehj CHAR(64),
+    PRIMARY KEY(fld_no ASC)
 );
 
 /*

@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <meta charset="UTF-8" /> 
+        <title></title>
+        <link href="/static/css/style.css" rel="stylesheet" type="text/css" > </style>
+        <script src="/static/js/jquery-1.7.1.min.js"></script> 
+        <script src="/static/js/common.js"></script> 
+
+    </head>
+    <body>
+        <center>
+            <br/> 
+            <h1>机型代码维护</h1>
+            <br/> 
+        <form method="POST" enctype="multipart/form-data" action="/addPhoneInfo">
+            请上传包含终端和机型代码对应关系的文本文件： 
+            <input type="file" name="myfile" size="20" /> 
+            <input type="submit" name="btn_s" value="上传数据" />
+            <br/> 
+            <br/> 
+       <span width="50%">
+       <div align="left">
+            <br/> 
+            文件格式示例(机型名称在前，机型代码在后，空格分隔)：
+            <br/> 
+            <br/> 
+            TD TCL E708 &nbsp;&nbsp;&nbsp;&nbsp; 100121290<br/>
+            TD大唐TG200L &nbsp;&nbsp;&nbsp;&nbsp; 100120850<br/>
+            TD多普达A8188 &nbsp;&nbsp;&nbsp;&nbsp; 400210<br/>
+       </div>
+       </span>
+       </form>
+   </center>
+    </body>
+</html>

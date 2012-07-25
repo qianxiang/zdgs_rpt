@@ -8,6 +8,8 @@ from makeFld import makeFld
 from saveFld import saveFld 
 from saveFld import skipThisOne 
 from saveFld import showReport
+from phoneInfo import uploadPhoneInfoPage
+from phoneInfo import addPhoneInfo
 import lazy 
 import up
 
@@ -15,6 +17,8 @@ urls = (
     '/working', 'working' ,
     '/uploadPage', 'uploadPage' ,
     '/upload', 'upload' ,
+    '/uploadPhoneInfoPage', 'uploadPhoneInfoPage' ,
+    '/addPhoneInfo', 'addPhoneInfo' ,
     '/previewPage', 'previewPage' ,
     '/makeFld', 'makeFld' ,
     '/saveFld', 'saveFld' ,
