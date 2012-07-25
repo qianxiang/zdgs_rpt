@@ -16,9 +16,7 @@ class uploadPhoneInfoPage:
 
 class addPhoneInfo:
     def GET(self):
-        runData = {'runFlag':True,}
-        runData['showMsg']= "网络入口不正确，请按照正常操作流程使用系统。" 
-        return render.err(runData) 
+        raise web.seeother('/static/upload_phone_info.html')
 
 
     def POST(self):
