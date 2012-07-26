@@ -10,8 +10,16 @@ $def with ( runData )
 
     </head>
     <body>
-        <br/><br/><h2>$runData['showMsg']</h2>
-        <br/><br/><a href="/" >返回</a>
+        <h2>$runData['showMsg']
+            &nbsp;&nbsp;&nbsp;
+        <a href="/" >返回</a>  </h2>
+        全部机型信息：
+        <table border="1">
+        $ infos = runData['AllPhoneInfo']
+        $for i,info in enumerate(infos):
+            <tr><td>$(i+1)</td><td> $info['phone_no'] </td><td> $info['phone_name'] </td></tr>
+        </table>
+
 
     </body>
 </html>

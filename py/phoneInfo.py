@@ -50,9 +50,69 @@ class addPhoneInfo:
             fout.write(x.myfile.file.read())            
 
             fout.close()
-        # 去预览数据，并进行挑选
-         
+        else:
+            runData['showMsg'] = '上传文件出错。'
+            return render.err(runData)
+        
+        # 存放合法数据的列表
+        infos = [ ]
 
+        # 检查数据
+        phoneInfoFile = open( fullpath, 'r' )
+        phoneInfoLine = phoneInfoFile.readlines();
+        phoneInfoFile.close()
+        for i,line in enumerate(phoneInfoLine):
+            line = line.strip()
+            if len(line)==0 :
+                continue         #空行直接跳过
+            else :
+                info = line.split(None,1) # 用第一个空格分成两个部分
+                if len(info) < 2 :
+                    # 格式不对，报错
+                    runData['showMsg'] = '文件格式错误。在第 %d 行:%s' %  (i,line)
+                    return render.err(runData)
+                else:
+                    infos.append(info)
+        
+        con = lazy.getConn()
+        cur = con.cursor()
+
+        # 将DB中的全部机型信息取出
+        allPhoneInfo = []
+        strSql = "select phone_no, phone_name from phone_info order by phone_no  " 
+        print strSql
+        cur.execute(strSql)
+        for record in cur:
+            info = dict()
+            info['phone_no'] = record[0]
+            info['phone_name'] = record[1]
+            allPhoneInfo.append(info)
+
+        # 检查是否和DB中已有数据冲突。
+        for i,info in enumerate(infos):
+            strSql = "SELECT * from phone_info WHERE phone_no='%s'" % info[0] 
+            print strSql
+            cur.execute(strSql)
+            if cur.fetchone() :
+                # 机型代码和DB中已有数据冲突，报错
+                runData['showMsg'] = '数据错误，机型代码已经存在，在第 %d 条数据: %s %s' %  ( i+1,info[0],info[1])
+                cur.close()
+                con.close()
+                return render.err(runData)
+
+        # 内容灌入DB
+        for info in infos:
+            strSql = "insert into phone_info (phone_no, phone_name) values ('%s','%s') " % (info[0],info[1])
+            print strSql
+            cur.execute(strSql)
+
+        con.commit()
+
+        cur.close()
+        con.close()
+
+         
+        runData['AllPhoneInfo'] = allPhoneInfo
         runData['showMsg'] = '增加机型信息成功'
 
         return render.phoneInfo(runData)
