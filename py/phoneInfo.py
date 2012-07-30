@@ -5,7 +5,8 @@ import time
 import web
 import xlsUtil
 
-import lazy
+from lazy import getConn
+from lazy import getYmdhms
 
 render = web.template.render('templates')
 
@@ -42,7 +43,7 @@ class addPhoneInfo:
             filename=filepath.split('/')[-1] 
             
             # creates the file where the uploaded file should be stored
-            fullpath = filedir +'/'+ lazy.getYmdhms() + '.txt'
+            fullpath = filedir +'/'+ getYmdhms() + '.txt'
             print fullpath
             fout = open( fullpath,'wb') #使用 wb 是为了在windows下能正确的上传文件。
             
@@ -74,19 +75,9 @@ class addPhoneInfo:
                 else:
                     infos.append(info)
         
-        con = lazy.getConn()
+        con = getConn()
         cur = con.cursor()
 
-        # 将DB中的全部机型信息取出
-        allPhoneInfo = []
-        strSql = "select phone_no, phone_name from phone_info order by phone_no  " 
-        print strSql
-        cur.execute(strSql)
-        for record in cur:
-            info = dict()
-            info['phone_no'] = record[0]
-            info['phone_name'] = record[1]
-            allPhoneInfo.append(info)
 
         # 检查是否和DB中已有数据冲突。
         for i,info in enumerate(infos):
@@ -108,6 +99,19 @@ class addPhoneInfo:
 
         con.commit()
 
+        # 将DB中的全部机型信息取出
+        allPhoneInfo = []
+        # strSql = "select phone_no, phone_name from phone_info order by phone_no  " 
+        strSql = "select phone_no, phone_name from phone_info order by rowid DESC  " 
+        print strSql
+        cur.execute(strSql)
+        for record in cur:
+            phone = dict()
+            phone['phone_no'] = record[0]
+            phone['phone_name'] = record[1]
+            allPhoneInfo.append(phone)
+
+
         cur.close()
         con.close()
 
@@ -117,6 +121,51 @@ class addPhoneInfo:
 
         return render.phoneInfo(runData)
 
+def findInvalidPhoneName():
+    '''
+    检查机型名称，看是否全部都在 phone_info 表中定义了。
+    '''
+    phoneList = []
+    allPhoneInfo = getAllPhoneInfo()
+    cx = getConn()
+    cu = cx.cursor()
+
+    strSql = "select c9 from temp_data WHERE data_type='fld' and use_flag='0'"
+    print strSql
+    cu.execute(strSql)
+
+    for sqlrow in cu:
+        phoneList.append( sqlrow[0] )
+
+    cu.close()
+    cx.close()
+
+    print phoneList
+    invalidPhoneName = []
+    for phone in phoneList:
+        if not allPhoneInfo.has_key(phone) :
+            invalidPhoneName.append(phone)
+
+    return invalidPhoneName
         
 
+def getAllPhoneInfo():
+    '''
+    从 phone_info 表中读出全部的机型名称和机型编码，放入 dict 中返回。
+    '''
+    allPhoneName = {}
+    
+    cx = getConn()
+    cu = cx.cursor()
 
+    strSql = "select phone_name, phone_no from phone_info"
+    print strSql
+    cu.execute(strSql)
+
+    for sqlrow in cu:
+        allPhoneName[ sqlrow[0] ] = sqlrow[1]
+    cu.close()
+    cx.close()
+
+    print allPhoneName
+    return allPhoneName

@@ -5,6 +5,7 @@ import xlsUtil
 
 from saveToTemp import saveToTemp 
 from makeFld import makeFld 
+from makeFld import delInvalidFld
 from saveFld import saveFld 
 from saveFld import skipThisOne 
 from saveFld import showReport
@@ -21,6 +22,7 @@ urls = (
     '/addPhoneInfo', 'addPhoneInfo' ,
     '/previewPage', 'previewPage' ,
     '/makeFld', 'makeFld' ,
+    '/delInvalidFld', 'delInvalidFld' ,
     '/saveFld', 'saveFld' ,
     '/showReport', 'showReport' ,
     '/skipThisOne', 'skipThisOne' ,

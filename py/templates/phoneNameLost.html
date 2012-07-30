@@ -1,0 +1,35 @@
+$def with ( runData )
+
+<html>
+    <head>
+        <meta charset="UTF-8" /> 
+        <title></title>
+        <link href="static/css/style.css" rel="stylesheet" type="text/css" />
+        <script src="static/js/jquery-1.7.1.min.js"></script> 
+        <script src="static/js/common.js"></script> 
+
+    </head>
+    <body>
+        <h2>$runData['showMsg']
+            &nbsp;&nbsp;&nbsp;
+            <br/>
+            您可以：
+        <a href="/" >返回</a>  
+            <br/> <br/>
+        <a href="/delInvalidFld" >删除待处理数据重新上传</a>
+            <br/> <br/>
+        <a href="/static/upload_phone_info.html" >维护机型信息</a>
+            <br/> <br/></h2>
+        出错的机型名称：
+        <table border="1">
+        $ phones = runData['invalidPhone']
+        $for i,phone in enumerate(phones):
+            <tr><td>$(i+1)</td><td> $phone </td></tr>
+        </table>
+
+
+
+
+
+    </body>
+</html>
