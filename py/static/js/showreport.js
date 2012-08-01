@@ -1,8 +1,7 @@
 //
 
 nextOne = function(){ 
-    //alert('');
-    $('#nextOne').get(0).click();
+    document.form_1.submit();
 }
 
 $(document).ready(function(){

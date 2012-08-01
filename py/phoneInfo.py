@@ -81,12 +81,12 @@ class addPhoneInfo:
 
         # 检查是否和DB中已有数据冲突。
         for i,info in enumerate(infos):
-            strSql = "SELECT * from phone_info WHERE phone_no='%s'" % info[0] 
+            strSql = "SELECT * from phone_info WHERE phone_name='%s'" % info[1] 
             print strSql
             cur.execute(strSql)
             if cur.fetchone() :
                 # 机型代码和DB中已有数据冲突，报错
-                runData['showMsg'] = '数据错误，机型代码已经存在，在第 %d 条数据: %s %s' %  ( i+1,info[0],info[1])
+                runData['showMsg'] = '数据错误，机型名称已经存在，在第 %d 条数据: %s %s' %  ( i+1,info[0],info[1])
                 cur.close()
                 con.close()
                 return render.err(runData)

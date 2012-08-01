@@ -6,7 +6,7 @@ titleStr = '中国移动终端陕西公司业务单据系统 by 仟翔电子'
 
 $(document).ready(function(){
     titleText = $('title').html();
-    titleText = titleText.trim();
+    titleText = $.trim(titleText);
     if( titleText == '' ){
         $('title').html( titleStr );
     }

@@ -64,8 +64,8 @@ class makeFld:
             runData['c13_'+  str(dataCount) ] = sqlrow[13]
             runData['c14_'+  str(dataCount) ] = sqlrow[14]
 
-            print "thisNo=" + thisNo
-            print "prevNo=" + prevNo
+            #print "thisNo=" + thisNo
+            #print "prevNo=" + prevNo
             if cmp(prevNo, 'abcdefghijklmn')==0:
                 prevNo = thisNo
             elif cmp(prevNo, thisNo) != 0 :
@@ -79,7 +79,7 @@ class makeFld:
 
         if dataCount < 10 :
             for loopCount in range(dataCount+1,11):
-                print "tian chong kong bai hang"
+                #print "tian chong kong bai hang"
                 runData['c0_'+  str(loopCount) ] = '' 
                 runData['c9_'+  str(loopCount) ] = ''
                 runData['c10_'+ str(loopCount) ] = ''
@@ -96,7 +96,7 @@ class makeFld:
             
         #runData['fld_no'] = getFldNo()
         runData['fld_no'] = 'Auto'
-        print runData
+        #print runData
 
         pageCookie = web.cookies(automode='n')
         if cmp(pageCookie.automode, 'y') == 0:

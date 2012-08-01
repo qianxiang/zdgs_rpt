@@ -1,11 +1,11 @@
 //
 // 倒计时 模块   包括两个全局变量，两个函数
-var COUNT_DOWN_TIME = 10;
+var COUNT_DOWN_TIME = 5;
 var COUNT_DOWN_ELEMENT = '';
 var COUNT_DOWN_TIMER;
 function addCountDown( delay, elementId ){
     if( delay < 1 ){
-        COUNT_DOWN_TIME = 10;
+        COUNT_DOWN_TIME = 5;
     }
     else {
         COUNT_DOWN_TIME = delay;
@@ -38,7 +38,7 @@ function showCountDown(){
 checkAutoMode = function( elem ){
     if( elem.checked ){
         $('#countdownText').show();
-        addCountDown(10, 'countdown');
+        addCountDown(5, 'countdown');
     }
     else{
         delCountDown();
